@@ -1,0 +1,27 @@
+version: '3.1'
+services:
+    calculate-interest-api:
+        container_name: calculate-interest-api
+        image: calculate-interest-api
+        restart: always
+        networks:
+            - softplan-network
+        build:
+            context: ./
+            dockerfile: CalculateInterest/Dockerfile
+        ports:
+          - 5005:80
+    interest-tax-api:
+        container_name: interest-tax-api
+        image: interest-tax-api
+        restart: always
+        networks:
+            - softplan-network
+        build:
+            context: ./
+            dockerfile: InterestTax/Dockerfile
+        ports:
+          - 5006:80
+networks:
+  softplan-network:
+    driver: bridge

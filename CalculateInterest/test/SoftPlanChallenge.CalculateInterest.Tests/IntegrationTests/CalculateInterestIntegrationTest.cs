@@ -19,7 +19,7 @@ namespace SoftPlanChallenge.CalculateInterest.Tests.IntegrationTests
             var interestTaxClient = interestTaxFactory.CreateClient();
             calculateInterestFactory.AddHttpClient("InterestTaxApi", interestTaxClient);
             var url = "/CalculaJuros?valorinicial=100&meses=5";
-            var expectedResult = "105.1";
+            var expectedResult = "105.10";
 
             var response = await calculateInterestClient.GetAsync(url);
             var content = await response.Content.ReadAsStringAsync();

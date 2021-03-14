@@ -24,10 +24,10 @@ namespace SoftPlanChallenge.CalculateInterest.Tests.UnitTests.Domain
         }
 
         [Theory]
-        [InlineData(100, 5, 105.10)]
-        [InlineData(120, 3, 123.63)]
-        [InlineData(550, 8, 595.57)]
-        public async Task Should_Calculate_Interest(double initialValue, int months, double expectedResult)
+        [InlineData(100, 5, "105.10")]
+        [InlineData(120, 3, "123.63")]
+        [InlineData(550, 8, "595.57")]
+        public async Task Should_Calculate_Interest(double initialValue, int months, string expectedResult)
         {
             _http.GetInterestTaxAsync().ReturnsForAnyArgs(x =>
             {

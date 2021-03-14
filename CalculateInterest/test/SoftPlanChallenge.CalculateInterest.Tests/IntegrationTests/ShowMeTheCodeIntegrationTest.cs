@@ -25,7 +25,9 @@ namespace SoftPlanChallenge.CalculateInterest.Tests.IntegrationTests
             var url = "/ShowMeTheCode";
 
             var response = await client.GetAsync(url);
+            var content = await response.Content.ReadAsStringAsync();
 
+            Assert.True(content.Equals("https://github.com/brunovandre/softplanchallenge"));
             Assert.True(response.IsSuccessStatusCode);
         }
     }

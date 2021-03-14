@@ -12,5 +12,5 @@ A Api de taxa de juros foi implementada em duas camadas (Api e Infra.Data). Por 
 ## Como executar as aplicações?
 Abra o prompt de comando, navegue até a raiz do projeto e digite ```docker-compose up -d --build```. Esse comando irá compilar e executar as aplicações, além de não travar seu prompt de comando. As Apis respondem pelos seguintes endereços:
 
-**Calcula Juros**: http://localhost:5005  
-**Retorna Taxa de Juros**: http://localhost:5006
+**Calcula Juros**: http://localhost:5005/swagger  
+**Retorna Taxa de Juros**: http://localhost:5006/swagger

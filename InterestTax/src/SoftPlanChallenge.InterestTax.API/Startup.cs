@@ -53,10 +53,6 @@ namespace SoftPlanChallenge.InterestTax.API
             {
                 endpoints.MapControllers();
             });
-
-            app.Run(async context => {
-                context.Response.Redirect("/swagger");
-            });
         }
     }
 }

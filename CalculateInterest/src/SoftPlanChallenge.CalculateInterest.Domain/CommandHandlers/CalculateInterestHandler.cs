@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace SoftPlanChallenge.CalculateInterest.Domain.CommandHandlers
 {
-    public class CalculateInterestHandler : IRequestHandler<CalculateInterestCommand, double>
+    public class CalculateInterestHandler : IRequestHandler<CalculateInterestCommand, string>
     {
         private readonly IInterestTaxClient _interestTaxClienthttp;
         private readonly INotificationHandler _notification;
@@ -27,7 +27,7 @@ namespace SoftPlanChallenge.CalculateInterest.Domain.CommandHandlers
             _configuration = configuration;
         }
 
-        public async Task<double> Handle(CalculateInterestCommand request, CancellationToken cancellationToken)
+        public async Task<string> Handle(CalculateInterestCommand request, CancellationToken cancellationToken)
         {
             var interest = await _interestTaxClienthttp.GetInterestTaxAsync();
             if (string.IsNullOrWhiteSpace(interest))
@@ -38,7 +38,7 @@ namespace SoftPlanChallenge.CalculateInterest.Domain.CommandHandlers
 
             var result = request.ValorInicial * Math.Pow(1 + double.Parse(interest), request.Meses);
 
-            return result.Truncate(2);
+            return result.Truncate(2).ToString("F2");
         }
     }
 }

@@ -25,7 +25,9 @@ namespace SoftPlanChallenge.InterestTax.Tests.IntegrationTests
             var url = "/TaxaJuros";
 
             var response = await client.GetAsync(url);
+            var content = await response.Content.ReadAsStringAsync();
 
+            Assert.True(content.Equals("0.01"));
             Assert.True(response.IsSuccessStatusCode);
         }
     }
